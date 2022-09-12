@@ -1,0 +1,26 @@
+﻿@model INVENTARIO.BL.BE.UnidadDeMedidaBE
+
+@{
+    ViewBag.Title = "InsertarUnidadDeMedida";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<p class="titulo">Agregar UnidadDeMedida</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("AgregarUnidadDeMedida", "UnidadDeMedida", FormMethod.Post))
+    {
+        <tr>
+            <td>Unidad: </td>
+            <td><input type="text" name="txtDescripcion" maxlength="10" placeholder="Descripcion Unidad"/></td>
+        </tr> 
+        <tr>
+            <td>Simbolo: </td>
+            <td><input type="text" name="txtSimbolo" maxlength="5" placeholder="Simbolo"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"><button type="submit">Agregar</button></td>
+        </tr>
+    }
+</table>
+

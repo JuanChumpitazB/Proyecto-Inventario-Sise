@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Estilos/Estilos.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    
+
+    <div class="principal">
+        <div class="encabezado"></div>
+        <nav id="navegar" role="navigation">
+            <ul class="lista">
+                @*<li>
+                    <a href="#nav" aria-haspopup="true"><img src="/Imagenes/Productos.png" width="38" height="28" /> Productos</a>
+                    <ul class="lista">
+                        <li><a href="/Producto/ListarProductos">Listado General</a></li>
+                        <li><a href="/Producto/ListarProductosOptimo">Productos Estado Óptimo</a></li>
+                        <li><a href="/Producto/ListarProductosMerma">Productos Estado Merma</a></li>
+                        <li><a href="/Producto/ListarProductosXvencer">Productos Por Vencer</a></li>
+                        <li><a href="/Producto/InsertarProducto">Agregar Producto</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav" aria-haspopup="true"><img src="/Imagenes/Categorias.png" width="32" height="28" /> Categorias</a>
+                    <ul class="lista">
+                        <li><a href="/Categoria/ListadoCategorias">Listado Categorias</a></li>
+                        <li><a href="/Categoria/InsertarCategoria">Insertar Categoria</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav" aria-haspopup="true"><img src="/Imagenes/Estados.png" width="38" height="28" /> Estados</a>
+                    <ul class="lista">
+                        <li><a href="/Estado/ListadoEstados">Listado Estados</a></li>
+                        <li><a href="/Estado/InsertarEstado">Insertar Estado</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav" aria-haspopup="true"><img src="/Imagenes/Marcas.png" width="38" height="28" /> Marcas</a>
+                    <ul class="lista">
+                        <li><a href="/Marca/ListadoMarcas">Listado Marcas</a></li>
+                        <li><a href="/Marca/InsertarMarca">Insertar Marca</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav" aria-haspopup="true"><img src="/Imagenes/UnidadDeMedida.png" width="38" height="28" /> Unidades de Medida</a>
+                    <ul class="lista">
+                        <li><a href="/UnidadDeMedida/ListadoUnidadDeMedidas">Listado Unidades de Medida</a></li>
+                        <li><a href="/UnidadDeMedida/InsertarUnidadDeMedida">Insertar Unidad de Medida</a></li>
+                    </ul>
+                </li>*@
+                <li>
+                    <a href="#nav" aria-haspopup="true"><img src="/Imagenes/Usuario.png" width="36" height="28" /> USUARIOS</a>
+                    <ul class="lista">
+                        <li><a href="/Usuario/ListadoUsuarios">Listado Usuarios</a></li>
+                        <li><a href="/Usuario/ListadoUsuariosBloqueados">Usuarios Bloqueados</a></li>
+                        <li><a href="/Usuario/ReestablecerPassword">Reestablecer Password</a></li>
+                        <li><a href="/Usuario/InsertarUsuario">Insertar Usuario</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#nav" aria-haspopup="true"><img src="/Imagenes/CerrarSesion.png" width="34" height="29" /></a>
+                    <ul class="lista">
+                        <li><a href="/Usuario/Inicio">Cerrar Sesion</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div class="contenido">
+            @RenderBody()
+        </div>
+
+
+    </div>
+
+
+</body>
+</html>

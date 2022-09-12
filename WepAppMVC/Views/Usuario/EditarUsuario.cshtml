@@ -1,0 +1,98 @@
+﻿@model INVENTARIO.BL.BE.UsuarioBE
+
+@{
+    ViewBag.Title = "EditarUsuario";
+    Layout = "~/Views/Layout/_LayoutMenuAdmin.cshtml";
+
+    var listaRoles = ViewBag.ListaRol;
+    
+    <script>
+        function soloNumerosEnteros(e){
+            tecla = (document.all) ? e.keyCode : e.which;
+
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla==8){
+                return true;
+            }
+        
+            // Patron de entrada, en este caso solo acepta numeros
+            patron =/[0-9]/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+        function soloNumerosDecimales(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) {
+                return true;
+            }
+
+            // Patron de entrada, en este caso solo acepta numeros
+            patron = /[0-9-,]/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+    </script>
+}
+
+<p class="titulo">Editar Usuario</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("ActualizarUsuario", "Usuario", FormMethod.Post))
+    {
+         <tr>
+            <td>ID: </td>
+            <td><input type="text" name="txtIDUsuario" value="@Model.idUsuario"/></td>
+        </tr>
+        <tr>
+            <td>Nombres: </td>
+            <td><input type="text" name="txtNombres" value="@Model.nombres"/></td>
+        </tr>
+        <tr>
+            <td>Apellido_Paterno: </td>
+            <td><input type="text" name="txtApellidoPaterno" value="@Model.apellidoPaterno"/></td>
+        </tr>
+        <tr>
+            <td>Apellido_Materno: </td>
+            <td><input type="text" name="txtApellidoMaterno" value="@Model.apellidoMaterno" /></td>
+        </tr>
+        <tr>
+            <td>DNI: </td>
+            <td><input type="text" name="txtDNI" value="@Model.dni" /></td>
+        </tr>
+        <tr>
+            <td>Telefono: </td>
+            <td><input type="text" name="txtTelefono" value="@Model.telefono"/></td>
+        </tr>
+        <tr>
+            <td>Direccion: </td>
+            <td><input type="text" name="txtDireccion" value="@Model.direccion" /></td>
+        </tr>
+        <tr>
+            <td>Usuario: </td>
+            <td><input type="text" name="txtUsuario" value="@Model.ususario" /></td>
+        </tr>
+        <tr>
+            <td>Usuario: </td>
+            <td><input type="text" name="txEstado" value="@Model.estado" maxlength="1" onkeypress="return soloNumerosEnteros(event)"/></td>
+        </tr>
+        <tr>
+            <td>Rol: </td>
+            <td>
+                <select name="cboRol">
+                    @foreach (var item in listaRoles)
+                    {
+                        <option value="@item.idRol">@item.rol</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td align="right"><button type="submit">Actualizar</button></td>
+        </tr>
+    }
+</table>
+
+
+

@@ -1,0 +1,95 @@
+﻿@model List<INVENTARIO.BL.BE.ProductoBE>
+
+@{
+    ViewBag.Title = "ProductosXagotarse";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<h2 class="titulo">Productos Por Agotarse</h2>
+
+<table class="tablaDatos">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Descripcion
+        </th>
+        <th>
+            Categoria
+        </th>
+        <th>
+            Marca
+        </th>
+        <th>
+            Medida
+        </th>
+        <th>
+            U. De Medida
+        </th>
+        <th>
+            Stock
+        </th>
+        <th>
+            FechaVencimiento
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Foto
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.idProducto
+            </td>
+            <td>
+                @item.descripcion
+            </td>
+            <td>
+                @item.marcaBE.categoriaBE.categoria
+            </td>
+            <td>
+                @item.marcaBE.marca
+            </td>
+            <td>
+                @item.medida
+            </td>
+            <td>
+                @item.unidadDeMedidaBE.simbolo
+            </td>
+            <td>
+                @item.unidadesEnExistencia
+            </td>
+            <td>
+                @item.fechaVencimiento
+            </td>
+            <td>
+                @item.estadoBE.descripcion
+            </td>
+            <td>
+                S/.  @item.precio
+            </td>
+            <td>
+                <img src="@item.fotoBE.URL" width="50" height="50" />
+            </td>
+            <td class="EliminarActualizarWEB">
+                @Html.ActionLink("ACTUALIZAR", "EditarProducto", new { idProducto = item.idProducto })
+            </td>
+            <td class="EliminarActualizarWEB">
+                @Html.ActionLink("ELIMINAR", "EliminarProducto", new { idProducto = item.idProducto })
+            </td>
+        </tr>
+
+    }
+</table>
+
+
+
+

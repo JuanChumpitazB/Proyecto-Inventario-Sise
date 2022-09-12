@@ -1,0 +1,26 @@
+﻿@model List<INVENTARIO.BL.BE.UnidadDeMedidaBE>
+
+@{
+    ViewBag.Title = "ListadoUnidadDeMedidas";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+
+
+<p class="titulo">Unidades de Medida</p>
+
+<table class="tablaDatos">
+    <tr>
+        <th>ID</th>
+        <th>DESCRIPCION</th>
+        <th>SIMBOLO</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.idUnidad</td>
+            <td>@item.descripcion</td>
+            <td>@item.simbolo</td>
+        </tr>
+    }
+</table>

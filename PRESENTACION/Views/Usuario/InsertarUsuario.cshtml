@@ -1,0 +1,57 @@
+﻿@model INVENTARIO.BL.BE.UsuarioBE
+
+@{
+    ViewBag.Title = "InsertarUsuario";
+    Layout = "~/Views/Layout/_LayoutMenuAdmin.cshtml";
+
+    var listaRoles = ViewBag.ListaRol;
+}
+
+<p class="titulo">Agregar Usuario</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("AgregarUsuario", "Usuario", FormMethod.Post))
+    {
+        <tr>
+            <td>Nombres: </td>
+            <td><input type="text" name="txtNombres" placeholder="Nombres del Usuario"/></td>
+        </tr>
+        <tr>
+            <td>Apellido_Paterno: </td>
+            <td><input type="text" name="txtApellidoPaterno" placeholder="Apellido Paterno" /></td>
+        </tr>
+        <tr>
+            <td>Apellido_Materno: </td>
+            <td><input type="text" name="txtApellidoMaterno" placeholder="Apellido Materno" /></td>
+        </tr>
+        <tr>
+            <td>DNI: </td>
+            <td><input type="text" name="txtDNI" placeholder="DNI" /></td>
+        </tr>
+        <tr>
+            <td>Telefono: </td>
+            <td><input type="text" name="txtTelefono" placeholder="Telefono" /></td>
+        </tr>
+        <tr>
+            <td>Direccion: </td>
+            <td><input type="text" name="txtDireccion" placeholder="Direccion" /></td>
+        </tr>
+        <tr>
+            <td>Usuario: </td>
+            <td><input type="text" name="txtUsuario" placeholder="Usuario" /></td>
+        </tr>
+        <tr>
+            <td>Rol: </td>
+            <td><select name="cboRol">
+                @foreach (var item in listaRoles)
+                {
+                    <option value="@item.idRol">@item.rol</option>
+                }
+                </select></td>
+        </tr>
+        <tr>
+            <td align="right"><button type="submit">Agregar</button></td>
+        </tr>
+    }
+</table>
+

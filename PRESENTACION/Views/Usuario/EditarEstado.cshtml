@@ -1,0 +1,43 @@
+﻿@model INVENTARIO.BL.BE.UsuarioBE
+
+@{
+    ViewBag.Title = "EditarEstado";
+    Layout = "~/Views/Layout/_LayoutMenuAdmin.cshtml";
+
+    
+}
+
+<p class="titulo">Editar Estado</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("ActualizarEstado", "Usuario", FormMethod.Post))
+    {
+        
+        <tr>
+            <td>Nombres: </td>
+            <td><input type="text" name="txtNombres" value="@Model.nombres" readonly /></td>
+        </tr>
+        <tr>
+            <td>Apellido_Paterno: </td>
+            <td><input type="text" name="txtApellidoPaterno" value="@Model.apellidoPaterno" readonly /></td>
+        </tr>
+        <tr>
+            <td>Apellido_Materno: </td>
+            <td><input type="text" name="txtApellidoMaterno" value="@Model.apellidoMaterno" readonly /></td>
+        </tr>
+        <tr>
+            <td>Usuario: </td>
+            <td><input type="text" name="txtUsuario" value="@Model.ususario" readonly /></td>
+        </tr>
+        <tr>
+            <td>Estado: </td>
+            <td><input type="text" name="txtEstado" value="@Model.estado" maxlength="1"/></td>
+        </tr>
+        <tr>
+            <td align="right"><button type="submit">Actualizar</button></td>
+        </tr>
+    }
+</table>
+
+
+

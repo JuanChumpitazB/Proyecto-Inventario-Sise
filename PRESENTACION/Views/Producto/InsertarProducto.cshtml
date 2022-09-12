@@ -1,0 +1,139 @@
+﻿@model INVENTARIO.BL.BE.ProductoBE
+
+@{
+    ViewBag.Title = "InsertarProducto";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+    
+    
+    var listaMarca = ViewBag.ListMarcas;
+    var listaCategoria = ViewBag.ListaCategorias;
+    var listaUnidadDeMedida = ViewBag.ListaUnidadDeMedida;
+    var listaEstado = ViewBag.ListaEstado;
+    var listaFoto = ViewBag.ListaFoto;
+    
+    <script>
+        function soloNumerosEnteros(e){
+            tecla = (document.all) ? e.keyCode : e.which;
+
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla==8){
+                return true;
+            }
+        
+            // Patron de entrada, en este caso solo acepta numeros
+            patron =/[0-9]/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+        function soloNumerosDecimales(e) {
+            tecla = (document.all) ? e.keyCode : e.which;
+
+            //Tecla de retroceso para borrar, siempre la permite
+            if (tecla == 8) {
+                return true;
+            }
+
+            // Patron de entrada, en este caso solo acepta numeros
+            patron = /[0-9-,]/;
+            tecla_final = String.fromCharCode(tecla);
+            return patron.test(tecla_final);
+        }
+    </script>
+    
+}
+
+
+<br />
+<p class="titulo">Insertar Producto</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("AgregarProducto", "Producto", FormMethod.Post))
+    //"ACTION O SEA EL METODO EN EL CONTROLADOR"
+    //"EL CONTROLADOR"
+    //MÈTODO PRO EL CUAL SE ENVIA ESOS CONTROLES
+    //SIEMPRE PARA ENVIAR MÉTODO POST
+    {
+        <tr>
+            <td>Descripcion: </td>
+            <td><input type="text" name="txtDescripcion" maxlength="35" placeholder="Descripcion"/></td>
+        </tr>
+        @*<tr>
+            <td>Categoria: </td>
+            <td>
+                <select name="cboCategoria">
+                    @foreach (var item in listaCategoria)
+                    {
+                       <option value="@item.idCategoria">@item.categoria</option>
+                    }
+                </select>
+            </td>
+        </tr>*@
+        <tr>
+            <td>Marca: </td>
+            <td>
+                <select name="cboMarca">
+                    @foreach (var item in listaMarca)
+                    {
+
+                        <option value="@item.idMarca">@item.marca</option>
+
+                    }
+
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Medida: </td>
+            <td><input type="text" name="txtMedida" maxlength="5" placeholder="Medida" onkeypress="return soloNumerosEnteros(event)" /></td>
+        </tr>
+        <tr>
+            <td>Unidad_De_Medida: </td>
+            <td>
+                <select name="cboUnidadDeMedida">
+                    @foreach (var item in listaUnidadDeMedida)
+                    {
+                        <option value="@item.idUnidad">@item.simbolo</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Unidades_en_Existencia: </td>
+            <td><input type="text" name="txtUnidadesEnExistencia" placeholder="Stock" onkeypress="return soloNumerosEnteros(event)" /></td>
+        </tr>
+        <tr>
+            <td>Fecha Vencimiento: </td>
+            <td><input type="date" name="dtFechaVencimiento" /></td>
+        </tr>
+        <tr>
+            <td>Estado: </td>
+            <td>
+                <select name="cboEstado">
+                    @foreach (var item in listaEstado)
+                    {
+                        <option value="@item.idEstado">@item.descripcion</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Precio: </td>
+            <td><input type="text" name="txtPrecio" placeholder="Precio" onkeypress="return soloNumerosDecimales(event)"/></td>
+        </tr>
+        <tr>
+            <td>Foto: </td>
+            @*<td>
+                <select name="cboFoto">
+                    @foreach (var item in listaFoto)
+                    {
+                        <option value="@item.idFoto">@item.URL</option>
+                    }
+                </select>
+            </td>*@
+            <td><input type="file"  name="foto" id="foto"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"><button type="submit">Agregar</button></td>
+        </tr>
+    }
+</table>

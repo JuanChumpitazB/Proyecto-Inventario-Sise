@@ -1,0 +1,21 @@
+﻿@model INVENTARIO.BL.BE.EstadoBE
+
+@{
+    ViewBag.Title = "InsertarEstado";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<p class="titulo">Agregar Estado</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("AgregarEstado", "Estado", FormMethod.Post))
+    {
+        <tr>
+            <td>Descripcion: </td>
+            <td><input type="text" name="txtDescripcion" maxlength="15" placeholder="Descripcion"/></td>
+        </tr> 
+        <tr>
+            <td colspan="2" align="right"><button type="submit">Agregar</button></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,27 @@
+﻿@model INVENTARIO.BL.BE.CategoriaBE
+
+@{
+    ViewBag.Title = "InsertarCategoria";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<p class="titulo">Agregar Categoria</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("AgregarCategoria", "Categoria", FormMethod.Post))
+    {
+        <tr>
+            <td>Nombre:</td>
+            <td><input type="text" name="txtCategoria" maxlength="40" placeholder="Nombre Categoria"/></td>
+        </tr>
+        <tr>
+            <td>Descripcion:</td>
+            <td><input type="text" name="txtDescripcion" maxlength="100" placeholder="Descripcion"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right"><button type="submit">AGREGAR</button></td>
+        </tr>
+    }
+</table>
+
+

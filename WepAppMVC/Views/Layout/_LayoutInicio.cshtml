@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <link href="~/Estilos/Estilos3.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+</head>
+<body>
+
+    <div class="principal">
+        <div class="encabezado"></div>
+        <div class="menu">
+
+            <table class="tablaFormMenu">
+                @using (Html.BeginForm("Logear", "Usuario", FormMethod.Post))
+                {
+                    <tr>
+                        <td colspan="2"><center><img src="/Estilos/Imagenes/LoginCandadoDiagonal.png" width="110" height="60" /></center></td>
+
+                        <td>Usuario: </td>
+                        <td><input type="text" id="txtUsuarioL" name="txtUsuario" /></td>
+                        <td>Password: </td>
+                        <td><input type="password" id="txtPasswordL" name="pwdPassword" /></td>
+                        @*<td><button type="button" onclick="Login();">INGRESAR</button></td>*@
+                        <td><input type="button" value="INGRESAR" onclick="Login();" /></td>
+                    </tr>
+                }
+            </table>
+
+
+
+            @*<nav id="navegar" role="navigation">
+                    <ul class="lista">
+
+                    </ul>
+                </nav>*@
+
+            @*<div class="contenido">
+                    @RenderBody()
+                </div>*@
+        </div>
+        <div class="subEncabezado">
+            <div class="UsuarioImagen"><img src="/Estilos/Imagenes/Usuario.png" width="110" height="100" /></div>
+        </div>
+        <div class="subContenido"></div>
+        <div class="contenido">
+            @RenderBody()
+        </div>
+        <div class="subContenido"></div>
+        <div class="final">
+            <p class="textoFinal">Instituto Sise Surco</p>
+            <p class="textoFinal">Turno Noche</p>
+            <p class="textoFinal">4to Ciclo</p>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+@section beforeBodyEnd
+{
+
+    @*<script src="@Url.Content("~/Scripts/Login.js")"></script>*@
+    <script src="~/js/Login.js"></script>
+}

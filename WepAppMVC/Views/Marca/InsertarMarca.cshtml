@@ -1,0 +1,33 @@
+﻿@model INVENTARIO.BL.BE.MarcaBE
+
+@{
+    ViewBag.Title = "InsertarMarca";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+
+    var listaCategoria = ViewBag.ListaCategoria;
+}
+
+<p class="titulo">Agregar Marca</p>
+
+<table class="tablaForm">
+    @using (Html.BeginForm("AgregarMarca", "Marca", FormMethod.Post))
+    {
+        <tr>
+            <td>Marca: </td>
+            <td><input type="text" name="txtMarca" maxlength="40" placeholder="Marca"/></td>
+        </tr>
+        <tr>
+            <td>Categoria: </td>
+            <td><select name="cboCategoria">
+                @foreach (var item in listaCategoria)
+                {
+                    <option value="@item.idCategoria">@item.categoria</option>
+                }
+                </select></td>
+        </tr> 
+        <tr>
+            <td align="right" colspan="2"><button type="submit">Agregar</button></td>
+        </tr>
+    }
+</table>
+

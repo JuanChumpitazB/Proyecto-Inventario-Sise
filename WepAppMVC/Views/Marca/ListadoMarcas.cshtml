@@ -1,0 +1,25 @@
+﻿@model List<INVENTARIO.BL.BE.MarcaBE>
+
+@{
+    ViewBag.Title = "ListadoMarcas";
+    Layout = "~/Views/Layout/_LayoutMenu.cshtml";
+}
+
+<p class="titulo">Listado Marcas</p>
+
+<table class="tablaDatos">
+    <tr>
+        <th>ID</th>
+        <th>MARCA</th>
+        <th>CATEGORIA</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.idMarca</td>
+            <td>@item.marca</td>
+            <td>@item.categoriaBE.categoria</td>
+        </tr>
+    }
+</table>
+
